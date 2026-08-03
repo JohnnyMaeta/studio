@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8/3オンラインワークショップ特設ページ｜手書きの振り返り、写真を撮るだけで一覧になる</title>
+<meta name="description" content="2026年8月3日（月）21:00開催オンラインワークショップの当日資料ページ。Google Workspace Studioで手書き振り返りの自動集約をつくります。サンプル画像・手順動画・使うリンクはすべてここから。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📷</text></svg>">
+<style>
+  :root {
+    --ink: #2b2b2b;
+    --bg: #fdfcf8;
+    --accent: #e91e63;
+    --accent-soft: #fce4ec;
+    --card: #ffffff;
+    --line: #e6e0d6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.8;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header {
+    background: linear-gradient(135deg, #fce4ec 0%, #fff8e1 100%);
+    padding: 48px 0 40px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+  }
+  header .label {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 2px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+  }
+  header h1 { font-size: 1.5rem; letter-spacing: 0.04em; line-height: 1.5; }
+  header .sub { margin-top: 10px; font-size: 0.95rem; color: #6b6257; }
+  section { padding: 40px 0 8px; }
+  h2 {
+    font-size: 1.2rem;
+    border-left: 6px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 6px;
+  }
+  .lead { font-size: 0.95rem; color: #5f584e; margin-bottom: 20px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .video-card { display: flex; gap: 16px; align-items: center; text-decoration: none; color: inherit; }
+  .video-card:hover { border-color: var(--accent); }
+  .video-card .thumb {
+    flex: 0 0 128px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+  .video-card .thumb img { width: 100%; display: block; }
+  .video-card .chap {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: bold;
+    letter-spacing: 0.06em;
+  }
+  .video-card .t { font-weight: bold; font-size: 0.98rem; line-height: 1.5; }
+  .video-card .d { font-size: 0.85rem; color: #6b6257; margin-top: 4px; }
+  ul.plain { list-style: none; }
+  ul.plain li { margin-bottom: 8px; }
+  ul.plain a { color: #1a0dab; text-decoration: none; }
+  ul.plain a:hover { text-decoration: underline; }
+  .biglink {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 14px 10px;
+    margin: 8px 0 14px;
+  }
+  .biglink:hover { opacity: 0.9; }
+  .biglink small { display: block; font-weight: normal; font-size: 0.78rem; opacity: 0.9; }
+  .flow { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .flow th, .flow td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .flow th { white-space: nowrap; color: var(--accent); font-weight: bold; }
+  .note {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    margin: 20px 0;
+  }
+  .sample-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .sample-grid .cell {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .sample-grid .cell:hover { border-color: var(--accent); }
+  .sample-grid a.view { display: block; text-decoration: none; color: inherit; }
+  .sample-grid img { width: 100%; display: block; aspect-ratio: 1041 / 1511; object-fit: cover; }
+  .sample-grid .cap {
+    display: block;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 6px 4px;
+    color: #6b6257;
+  }
+  .sample-grid a.dl {
+    display: block;
+    margin: 0 8px 8px;
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .sample-grid a.dl:hover { background: var(--accent); color: #fff; }
+  @media (max-width: 480px) {
+    .sample-grid { grid-template-columns: 1fr; }
+  }
+  footer {
+    margin-top: 48px;
+    padding: 32px 0 40px;
+    background: #f4efe6;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b6257;
+  }
+  footer .motto { font-weight: bold; color: var(--accent); font-size: 1rem; margin-bottom: 10px; }
+  @media (max-width: 480px) {
+    .video-card { flex-direction: column; align-items: stretch; }
+    .video-card .thumb { flex: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="label">オンラインワークショップ特設ページ</span>
+    <h1>手書きの振り返り、<br>写真を撮るだけで一覧になる</h1>
+    <p class="sub">2026年8月3日（月）21:00〜22:00｜Google Workspace Studioで自動集約をつくる60分<br>講師：前多昌顕（Johnny MAETA）</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="goal">
+  <h2>今夜つくるもの</h2>
+  <p class="lead">手書きの振り返りをスマホで撮って、Driveのフォルダーに入れる。それだけで、Google Workspace Studioが中身を読み取って、スプレッドシートに「名前・日付・内容」の一覧をつくってくれます。子どもは紙に書き、先生は一覧で受け取る。この仕組みを一緒につくります。</p>
+  <div class="note" style="margin-top:0;">
+    その場で完成しなくても大丈夫です。画面を見て帰るだけでも、「こんなことができるんだ」がわかれば十分な持ち帰りです。手順動画はこのページに置いてあるので、後日いつでもやり直せます。
+  </div>
+</section>
+
+<section id="links">
+  <h2>今夜つかうリンク</h2>
+  <a class="biglink" href="https://studio.workspace.google.com/" target="_blank" rel="noopener">Google Workspace Studio を開く<small>studio.workspace.google.com ― まずここが開けるか確認</small></a>
+  <div class="card">
+    <ul class="plain">
+      <li><a href="https://drive.google.com/" target="_blank" rel="noopener">Googleドライブ</a> ― 写真を放り込む監視フォルダーをつくる場所</li>
+      <li><a href="https://sheet.new" target="_blank" rel="noopener">sheet.new</a> ― 集計先スプレッドシートの新規作成</li>
+      <li><a href="https://script.google.com/macros/s/AKfycbyiV2IEOdW90UFjD3J4MM6XR8FZfJU65Q877ry_xmv8FDhiLVnKMU7STT_kIicQEMQxMQ/exec" target="_blank" rel="noopener">練習用アカウント貸与ページ</a> ― Studioが開けなかった方はこちら</li>
+    </ul>
+  </div>
+</section>
+
+<section id="sample">
+  <h2>ワーク用のサンプル画像</h2>
+  <p class="lead">今夜のワークで使う、手書き振り返りのサンプルです。保存して、Studioの監視フォルダーに入れると、スプレッドシートへの自動集計を試せます。鉛筆書き・ペン書き・縦書き筆文字の3パターンです。</p>
+
+  <div class="card">
+    <div class="sample-grid">
+      <div class="cell">
+        <a class="view" href="sample/furikaeri-demo1.jpg" target="_blank" rel="noopener">
+          <img src="sample/furikaeri-demo1.jpg" alt="鉛筆書きの振り返りサンプル" loading="lazy">
+          <span class="cap">その1：鉛筆書き</span>
+        </a>
+        <a class="dl" href="sample/furikaeri-demo1.jpg" download="振り返りサンプル1_鉛筆書き.jpg">ダウンロード</a>
+      </div>
+      <div class="cell">
+        <a class="view" href="sample/furikaeri-demo2.jpg" target="_blank" rel="noopener">
+          <img src="sample/furikaeri-demo2.jpg" alt="ペン書きの振り返りサンプル" loading="lazy">
+          <span class="cap">その2：ペン書き</span>
+        </a>
+        <a class="dl" href="sample/furikaeri-demo2.jpg" download="振り返りサンプル2_ペン書き.jpg">ダウンロード</a>
+      </div>
+      <div class="cell">
+        <a class="view" href="sample/furikaeri-demo3.jpg" target="_blank" rel="noopener">
+          <img src="sample/furikaeri-demo3.jpg" alt="縦書き筆文字の振り返りサンプル" loading="lazy">
+          <span class="cap">その3：縦書き・筆文字</span>
+        </a>
+        <a class="dl" href="sample/furikaeri-demo3.jpg" download="振り返りサンプル3_縦書き筆文字.jpg">ダウンロード</a>
+      </div>
+    </div>
+    <div class="note">
+      <strong>保存のしかた</strong><br>
+      ・<strong>パソコン</strong>：各画像の下の「ダウンロード」を押すと、そのまま保存されます（保存先は通常「ダウンロード」フォルダー）。うまくいかないときは、画像をクリックして開き、右クリック→「名前を付けて画像を保存」でもOKです。<br>
+      ・<strong>iPad・スマホ</strong>：画像を長押しして「"写真"に追加」または「画像をダウンロード」を選びます。<br>
+      保存できたら、その画像をStudioの監視フォルダー（Googleドライブ）にアップロードすれば準備完了です。手元にスマホがある方は、画面を撮影→アップロードでも本番と同じ流れを体験できます。
+    </div>
+    <div class="note" style="margin-bottom:0;">
+      名前はいずれも架空またはデモ用です。その3は筋肉市の児童という設定なので、集計結果もあわせてお楽しみください。
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <h2>今夜の流れ</h2>
+  <p class="lead">「やって見せる → 理由を話しながら一緒に → 自分の学級用にアレンジ」の3回繰り返しで進めます。内容が済み次第、22:00を待たずに解散します。</p>
+  <div class="card">
+    <table class="flow">
+      <tr><th>20:50〜</th><td>入室・接続確認（Studioが開けるか、ここで確かめます）</td></tr>
+      <tr><th>21:00〜21:05</th><td>なぜ、手書きのまま集めるのか</td></tr>
+      <tr><th>21:05〜21:15</th><td>1回目：講師がやって見せる</td></tr>
+      <tr><th>21:15〜21:35</th><td>2回目：なぜその設定をするのかを話しながら、一緒につくる</td></tr>
+      <tr><th>21:35〜21:50</th><td>3回目：自分の学級・自分の使い方に合わせてアレンジする</td></tr>
+      <tr><th>21:50〜22:00</th><td>質疑・持ち帰りの確認（済み次第解散）</td></tr>
+    </table>
+  </div>
+  <div class="note">
+    <strong>アレンジのヒント</strong>：読み取る項目は自由に差し替えられます。「今日のめあて・できたこと・明日やること」の振り返りカードのほか、係活動カード、宿題チェック、健康観察カードなど、「紙のまま受け取って一覧にしたいもの」なら何にでも応用できます。
+  </div>
+</section>
+
+<section id="videos">
+  <h2>手順を動画で確認する</h2>
+  <p class="lead">今夜の内容はすべてこの動画に残っています。途中で詰まっても、後日この動画のとおりに進めば同じものがつくれます。</p>
+
+  <a class="card video-card" href="https://youtu.be/_vmQsKdcidk" target="_blank" rel="noopener">
+    <span class="thumb"><img src="https://img.youtube.com/vi/_vmQsKdcidk/hqdefault.jpg" alt="Workspace Studio導入手順の動画サムネイル"></span>
+    <span>
+      <span class="chap">今夜の本体</span>
+      <span class="t">手書きの振り返り画像を自動でスプレッドシートにデータ集計するフロー</span>
+      <span class="d">フォルダーに入れるだけ。縦書きでも、丁寧じゃない字でも、なんとかなります。</span>
+    </span>
+  </a>
+
+  <a class="card video-card" href="https://youtu.be/8sZS3oCD6t4" target="_blank" rel="noopener">
+    <span class="thumb"><img src="https://img.youtube.com/vi/8sZS3oCD6t4/hqdefault.jpg" alt="Workspace Studioでフォームを自動分析する動画のサムネイル"></span>
+    <span>
+      <span class="chap">次の一歩</span>
+      <span class="t">Google Workspace Studioでフォームを自動分析</span>
+      <span class="d">集めたあとの「読む・分析する」もStudioに任せる応用編。</span>
+    </span>
+  </a>
+
+  <a class="card video-card" href="https://youtu.be/kbwSA1hWskw" target="_blank" rel="noopener">
+    <span class="thumb"><img src="https://img.youtube.com/vi/kbwSA1hWskw/hqdefault.jpg" alt="Geminiとドキュメントを繋ぐ自動化動画のサムネイル"></span>
+    <span>
+      <span class="chap">次の一歩</span>
+      <span class="t">毎日の振り返り分析を完全自動化！Geminiとドキュメントを繋ぐ5ステップ</span>
+      <span class="d">一覧にした振り返りを、毎日自動で分析させるところまで。</span>
+    </span>
+  </a>
+</section>
+
+<section id="caution">
+  <h2>教室で使う前に、ひとつだけ</h2>
+  <div class="card">
+    <p style="font-size:0.92rem;">今夜の演習で使うのは架空のサンプル画像です。児童の実物の振り返りを扱う前には、次の3点を確認してください。</p>
+    <ul style="font-size:0.92rem; padding-left:1.4em; margin-top:8px;">
+      <li>自治体・学校の生成AI利用ルール（児童の記述をAIに読ませてよいか）</li>
+      <li>アップロードした画像の保存場所と、使い終わったあとの削除</li>
+      <li>保護者への説明（学級通信などで一言伝えておくと安心です）</li>
+    </ul>
+  </div>
+</section>
+
+<section id="author">
+  <h2>もっと知りたい方へ</h2>
+  <div class="card">
+    <ul class="plain">
+      <li><a href="https://johnnymaeta.github.io/gyarushi/" target="_blank" rel="noopener">書籍特設サイト</a> ― 今夜のワークの元になった書籍の動画・演習資料一覧</li>
+      <li><a href="https://www.youtube.com/@johnnymaeta" target="_blank" rel="noopener">YouTube</a> ― 毎日19:00、教員向けICTチュートリアル</li>
+      <li><a href="https://voicy.jp/channel/4094" target="_blank" rel="noopener">Voicy「ジョニーのICT&きままトーク」</a></li>
+      <li><a href="https://note.com/kumaya77" target="_blank" rel="noopener">note</a></li>
+      <li><a href="https://x.com/johnnymaeta" target="_blank" rel="noopener">X（@johnnymaeta）</a></li>
+      <li><a href="https://www.amazon.co.jp/stores/%E5%89%8D%E5%A4%9A-%E6%98%8C%E9%A1%95/author/B09RGNX3XZ" target="_blank" rel="noopener">著書一覧（Amazon著者ページ）</a></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="motto">超絶簡単です。</p>
+    <p>© 前多昌顕（ジョニー）</p>
+  </div>
+</footer>
+
+</body>
+</html>
