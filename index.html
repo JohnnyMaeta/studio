@@ -141,6 +141,77 @@
   @media (max-width: 480px) {
     .sample-grid { grid-template-columns: 1fr; }
   }
+  /* データの流れ図 */
+  .flowmap { padding: 22px 20px; }
+  .fm-box {
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    background: #fff;
+  }
+  .fm-step {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    padding: 1px 10px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+  }
+  .fm-title { font-weight: bold; font-size: 1rem; }
+  .fm-desc { font-size: 0.86rem; color: #5f584e; margin-top: 4px; }
+  .fm-arrow {
+    text-align: center;
+    padding: 6px 0;
+    position: relative;
+  }
+  .fm-arrow::before {
+    content: "";
+    display: block;
+    width: 0; height: 0;
+    margin: 0 auto 4px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 14px solid var(--accent);
+  }
+  .fm-arrow-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #6b6257;
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 2px 14px;
+  }
+  .fm-chips { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 3px 12px;
+    border-radius: 999px;
+    border: 1.5px solid;
+  }
+  .chip small { font-weight: normal; font-size: 0.72rem; }
+  .c1 { color: #1565c0; background: #e3f2fd; border-color: #1565c0; }
+  .c2 { color: #2e7d32; background: #e8f5e9; border-color: #2e7d32; }
+  .c3 { color: #e65100; background: #fff3e0; border-color: #e65100; }
+  .c4 { color: #ad1457; background: #fce4ec; border-color: #ad1457; }
+  .fm-sheet { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 10px; }
+  .fm-sheet th, .fm-sheet td {
+    border: 1px solid var(--line);
+    padding: 5px 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .fm-sheet td { color: #6b6257; white-space: normal; }
+  .fm-sheet td:nth-child(1), .fm-sheet td:nth-child(2) { white-space: nowrap; }
+  .fm-sheet th.h1 { color: #1565c0; background: #e3f2fd; }
+  .fm-sheet th.h2 { color: #2e7d32; background: #e8f5e9; }
+  .fm-sheet th.h3 { color: #e65100; background: #fff3e0; }
+  .fm-sheet th.h4 { color: #ad1457; background: #fce4ec; }
+  .fm-sheet-scroll { overflow-x: auto; }
   footer {
     margin-top: 48px;
     padding: 32px 0 40px;
@@ -173,6 +244,56 @@
   <p class="lead">手書きの振り返りをスマホで撮って、Driveのフォルダーに入れる。それだけで、Google Workspace Studioが中身を読み取って、スプレッドシートに「名前・日付・内容」の一覧をつくってくれます。子どもは紙に書き、先生は一覧で受け取る。この仕組みを一緒につくります。</p>
   <div class="note" style="margin-top:0;">
     その場で完成しなくても大丈夫です。画面を見て帰るだけでも、「こんなことができるんだ」がわかれば十分な持ち帰りです。手順動画はこのページに置いてあるので、後日いつでもやり直せます。
+  </div>
+</section>
+
+<section id="map">
+  <h2>データの流れ図</h2>
+  <p class="lead">つくるのは、この3つの箱を上から順につなぐ仕組みです。作業中に「いま、どこ？」と迷ったら、この図に戻って現在地を確かめてください。</p>
+
+  <div class="card flowmap">
+    <div class="fm-box">
+      <span class="fm-step">STEP 1</span>
+      <div class="fm-title">📁 Googleドライブ（監視フォルダー）</div>
+      <div class="fm-desc">手書きの振り返りをスマホで撮って、このフォルダーに入れます。ここが仕組みの入口。写真を入れるのは先生です（子どもは紙に書くだけ）。</div>
+    </div>
+
+    <div class="fm-arrow">
+      <span class="fm-arrow-label">写真が追加されたら動き出す ＝ <strong>着火点（Studioの言葉では「トリガー」）</strong></span>
+    </div>
+
+    <div class="fm-box">
+      <span class="fm-step">STEP 2</span>
+      <div class="fm-title">⚙️ Workspace Studio（読み取り）</div>
+      <div class="fm-desc">写真から「何を取り出すか」を、あらかじめ項目で指示しておきます。指示していないものは取り出せません。</div>
+      <div class="fm-chips">
+        <span class="chip c1">名前</span>
+        <span class="chip c2">日付</span>
+        <span class="chip c3">内容</span>
+        <span class="chip c4">一言要約 <small>※AIが生成（紙には書いてない）</small></span>
+      </div>
+    </div>
+
+    <div class="fm-arrow">
+      <span class="fm-arrow-label">写真1枚 → 1行。<strong>同じ色の項目が、同じ色の列に入る</strong></span>
+    </div>
+
+    <div class="fm-box">
+      <span class="fm-step">STEP 3</span>
+      <div class="fm-title">📊 スプレッドシート（一覧）</div>
+      <div class="fm-desc">写真を入れるたびに、下に1行ずつ増えていきます。並べ替えもフィルタも、その先の分析も自由です。</div>
+      <div class="fm-sheet-scroll">
+        <table class="fm-sheet">
+          <tr><th class="h1">名前</th><th class="h2">日付</th><th class="h3">内容</th><th class="h4">一言要約</th></tr>
+          <tr><td>サンプル 太郎</td><td>8月3日</td><td>なわとびの二重とびが3回できた。あしたは5回…</td><td>二重とびに手ごたえ</td></tr>
+          <tr><td>デモ 花子</td><td>8月3日</td><td>係の仕事をわすれてしまったので、メモを…</td><td>係の仕事の工夫を発見</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>迷子になったら</strong>：あわてなくて大丈夫、壊れません。開いている画面を閉じて、Studioの<strong>フロー一覧（トップ画面）</strong>に戻ってください。そのうえでこの図を見て「いまSTEPいくつまで済んだか」を確かめれば、次の区切りで追いつけます。
   </div>
 </section>
 
